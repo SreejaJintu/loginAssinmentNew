@@ -7,7 +7,7 @@ function Home() {
   const handleLogout = () => {
     localStorage.removeItem('token');
     alert('You have been logged out.');
-    navigate('/login');
+    navigate('/');
   };
 
   return (

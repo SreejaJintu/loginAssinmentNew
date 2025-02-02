@@ -11,13 +11,17 @@ function Login() {
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('https://loginassnewbackend.onrender.com/api/auth/login', { username, password });
+      const response = await axios.post('http://localhost:5000/api/auth/login', { username, password });
       localStorage.setItem('token', response.data.token);
       alert('Login successful!');
       navigate('/home');
     } catch (err) {
       alert(err.response?.data?.message || 'Login failed');
     }
+  };
+
+  const handleSignup = () => {
+    navigate('/signup');
   };
 
   return (
@@ -46,6 +50,14 @@ function Login() {
         </div>
         <button type="submit" className="btn btn-primary">Log In</button>
       </form>
+      <div className="mt-3">
+      <p>
+          Don't have an account? 
+        </p>
+        <button className="btn btn-secondary" onClick={handleSignup}>
+          Sign Up Here
+        </button>
+      </div>
     </div>
   );
 }
