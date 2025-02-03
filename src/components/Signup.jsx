@@ -13,7 +13,7 @@ function Signup() {
     try {
       await axios.post('https://loginassnewbackend-y0w8.onrender.com/api/auth/signup', { username, password });
       alert('Signup successful! Please login.');
-      navigate('/login');
+      navigate('/');
     } catch (err) {
       alert(err.response?.data?.message || 'Signup failed');
     }
